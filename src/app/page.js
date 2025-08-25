@@ -1,103 +1,510 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Menu, X, Shield, HeartPulse, Landmark, Users, ChevronRight, Mail, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+// ======= THEME =======
+// Paleta inspirada en el Partido Republicano de Chile
+// Rojo principal, azul profundo de acento, dorado sutil y gris carbón.
+const THEME = {
+  red: "#D0131C",
+  redDark: "#A10E16",
+  navy: "#0E1A2B",
+  gold: "#C9A227",
+  coal: "#0B0B0C",
+  gray: "#111827",
+  light: "#F8FAFC",
+};
+
+const bio = {
+  nombre: "Soledad Loyola",
+  cargo: "Candidata a Senadora – Circunscripción 6, Región de Valparaíso",
+  resumen:
+    "Técnico Agrícola (DuocUC), con formación en Ingeniería en Administración de RR.HH. (Escuela de Comercio Santiago). Casablanca de corazón; gestión territorial rural, apoyo a organizaciones comunitarias y vocación de servicio.",
+  edad: 40,
+  nacimiento: "Valparaíso, 17 de junio de 1985",
+  familia: "Soltera; madre de una hija de 18 años y un hijo de 8 años.",
+  estudios: [
+    "Educación básica y media en Casablanca.",
+    "Técnico Agrícola en DuocUC.",
+    "Cursando Ingeniería en Administración de RR.HH. en Escuela de Comercio, Santiago.",
+  ],
+  competencias: [
+    "Gestión agrícola y vitivinícola.",
+    "Gestión territorial rural y apoyo a organizaciones comunitarias.",
+    "Comunicación efectiva, trabajo en equipo y alta capacidad de gestión.",
+  ],
+  militancia:
+    "Coordinadora del Partido Republicano en Casablanca. Ex candidata a concejal; hoy candidata a Senadora por la Circunscripción 6.",
+  domicilio: "Casablanca, Región de Valparaíso.",
+};
+
+
+// ======= COMPONENTES =======
+function Container({ children }) {
+  return <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>;
+}
+
+function NavBar() {
+  const [open, setOpen] = React.useState(false);
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <header
+      className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5"
+      style={{ backgroundColor: "rgba(255,255,255,0.65)" }}
+    >
+      <Container>
+        <nav className="flex items-center justify-between py-3">
+          <Link href="#" className="flex items-center gap-3">
+            <div
+              className="h-9 w-9 rounded-full shadow"
+              style={{ background: THEME.red }}
+              aria-label="Logo Soledad Loyola"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="leading-tight">
+              <p className="font-bold tracking-tight" style={{ color: THEME.navy }}>
+                {bio.nombre}
+              </p>
+              <p className="text-xs text-gray-600">{bio.cargo}</p>
+            </div>
+          </Link>
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#propuesta" className="hover:opacity-80">Propuesta</a>
+            <a href="#biografia" className="hover:opacity-80">Biografía</a>
+            <a href="#agenda" className="hover:opacity-80">Agenda</a>
+            <a href="#voluntariado" className="hover:opacity-80">Voluntariado</a>
+            <a href="#donar" className="hover:opacity-80">Donar</a>
+            <Button
+              className="rounded-full px-4 py-2 text-white"
+              style={{ background: THEME.red }}
+              asChild
+            >
+              <a href="#contacto">Contacto</a>
+            </Button>
+          </div>
+          <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Abrir menú">
+            {open ? <X /> : <Menu />}
+          </button>
+        </nav>
+        {open && (
+          <div className="md:hidden pb-4">
+            <div className="grid gap-2 text-sm">
+              {[
+                ["Propuesta", "#propuesta"],
+                ["Biografía", "#biografia"],
+                ["Agenda", "#agenda"],
+                ["Voluntariado", "#voluntariado"],
+                ["Donar", "#donar"],
+                ["Contacto", "#contacto"],
+              ].map(([label, href]) => (
+                <a key={href} href={href} className="py-2 border-b border-black/5">
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </Container>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section
+      className="relative overflow-hidden"
+      style={{ background: `linear-gradient(180deg, ${THEME.navy} 0%, ${THEME.gray} 100%)` }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-10"
+        style={{ backgroundImage: "radial-gradient(1000px 400px at 0% 0%, white, transparent)" }}
+      />
+      <Container>
+        <div className="grid lg:grid-cols-2 items-center py-16 lg:py-24 gap-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold" style={{ background: "white", color: THEME.navy }}>
+              Circunscripción 6 · Región de Valparaíso
+            </span>
+            <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+              Seguridad, desarrollo y libertad para vivir tranquilos
+            </h1>
+            <p className="mt-4 text-slate-200 max-w-xl">
+              {bio.nombre} propone una agenda sobria y firme: combatir el delito con enfoque territorial, ordenar la migración con reglas claras, y reactivar la economía local apoyando a quienes emprenden y trabajan.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Button className="rounded-full px-5 py-2.5 text-white" style={{ background: THEME.red }} asChild>
+                <a href="#propuesta">Leer propuesta</a>
+              </Button>
+              <Button className="rounded-full px-5 py-2.5" variant="outline" asChild>
+                <a href="#voluntariado">Ser voluntario</a>
+              </Button>
+              <Button className="rounded-full px-5 py-2.5" variant="outline" asChild>
+                <a href="#donar">Donar</a>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Placeholder para FOTO PRINCIPAL */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative"
           >
-            Read our docs
+            <div className="aspect-[4/5] w-full rounded-3xl border-2 border-dashed" style={{ borderColor: THEME.gold, background: "#ffffff0a" }}>
+              <div className="flex h-full items-center justify-center text-center p-6">
+                <p className="text-sm text-white/80">
+                  Espacio para FOTO HERO de Soledad Loyola<br />
+                  <span className="text-white/60">(sube una imagen vertical con fondo neutro)</span>
+                </p>
+              </div>
+            </div>
+            <div className="absolute -bottom-6 -right-6 hidden sm:block rounded-2xl px-4 py-3 text-sm font-semibold shadow-lg" style={{ background: THEME.red, color: "white" }}>
+              ¡Súmate hoy!
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Issue({ icon: Icon, title, children }) {
+  return (
+    <Card className="shadow-sm hover:shadow-md transition rounded-2xl border-black/5">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full" style={{ background: THEME.red, color: "white" }}>
+            <Icon size={20} />
+          </span>
+          <span className="text-lg">{title}</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm text-slate-600">
+        {children}
+      </CardContent>
+    </Card>
+  );
+}
+
+function Propuesta() {
+  return (
+    <section id="propuesta" className="py-16 sm:py-24 bg-white">
+      <Container>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: THEME.navy }}>
+            Nuestra propuesta
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Tres ejes con foco en resultados concretos para la Región de Valparaíso.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Issue icon={Shield} title="Seguridad">
+            Plan regional contra el crimen organizado: refuerzo a Carabineros y PDI, persecución penal efectiva y recuperación de espacios públicos. Protección a víctimas y testigos.
+          </Issue>
+          <Issue icon={Landmark} title="Orden migratorio">
+            Control fronterizo real, regularización con plazos estrictos y expulsión de delincuentes. Integración responsable para quienes cumplen la ley y aportan al país.
+          </Issue>
+          <Issue icon={HeartPulse} title="Salud y bienestar">
+            Reducción de listas de espera con gestión, más especialistas y salud primaria fortalecida. Prevención en salud mental y adicciones con foco comunitario.
+          </Issue>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Biografia() {
+  return (
+    <section id="biografia" className="py-16 sm:py-24" style={{ background: THEME.light }}>
+      <Container>
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          {/* Placeholder para FOTO BIO */}
+          <div>
+            <div className="aspect-[4/5] w-full rounded-3xl border-2 border-dashed bg-white" style={{ borderColor: THEME.red }}>
+              <div className="flex h-full items-center justify-center text-center p-6">
+                <p className="text-sm text-slate-500">
+                  Espacio para FOTO BIO (medio cuerpo) <br />
+                  <span className="text-slate-400">(sube una imagen nítida con fondo real o estudio)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: THEME.navy }}>
+              {bio.nombre}
+            </h2>
+            <p className="mt-2 text-sm font-semibold" style={{ color: THEME.red }}>
+              {bio.cargo}
+            </p>
+            <p className="mt-4 text-slate-700">
+              {bio.resumen}
+            </p>
+            <ul className="mt-4 space-y-2 text-slate-700 text-sm">
+              <li><strong>Nacimiento:</strong> {bio.nacimiento} ({bio.edad} años)</li>
+              <li><strong>Familia:</strong> {bio.familia}</li>
+              <li><strong>Domicilio:</strong> {bio.domicilio}</li>
+            </ul>
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <Card className="rounded-xl border-black/5">
+                <CardHeader>
+                  <CardTitle className="text-base">Estudios</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                    {bio.estudios.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card className="rounded-xl border-black/5">
+                <CardHeader>
+                  <CardTitle className="text-base">Competencias</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                    {bio.competencias.map((c) => (
+                      <li key={c}>{c}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+            <p className="mt-6 text-sm text-slate-600">
+              {bio.militancia}
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Agenda() {
+  return (
+    <section id="agenda" className="py-16 sm:py-24 bg-white">
+      <Container>
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: THEME.navy }}>
+              Agenda & Territorio
+            </h2>
+            <p className="mt-3 text-slate-600 max-w-2xl">
+              Publica aquí tus actividades por provincia y comuna. Puedes actualizar este bloque con datos reales o conectarlo a un CMS más adelante.
+            </p>
+          </div>
+          <Button className="rounded-full px-4 py-2 text-white" style={{ background: THEME.red }}>Enviar actividad</Button>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {["Valparaíso", "Marga Marga", "Quillota", "San Antonio", "Petorca", "Los Andes"].map((prov) => (
+            <Card key={prov} className="rounded-2xl border-black/5">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between text-base">
+                  <span>{prov}</span>
+                  <span className="text-xs font-semibold" style={{ color: THEME.red }}>Próximos días</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-600 space-y-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="h-10 w-14 rounded-md bg-slate-100 grid place-items-center text-xs font-bold" style={{ color: THEME.navy }}>
+                      17 SEP
+                    </div>
+                    <div>
+                      <p className="font-medium">Puerta a puerta y punto de prensa</p>
+                      <p className="text-xs text-slate-500 flex items-center gap-2"><MapPin size={14}/> Comuna por definir</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Voluntariado() {
+  return (
+    <section id="voluntariado" className="py-16 sm:py-24" style={{ background: `linear-gradient(180deg, white, ${THEME.light})` }}>
+      <Container>
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: THEME.navy }}>
+              Súmate como voluntario/a
+            </h2>
+            <p className="mt-3 text-slate-600 max-w-prose">
+              Necesitamos equipos en terreno, difusión en redes y apoyo logístico. Déjanos tus datos y nos pondremos en contacto.
+            </p>
+
+            <form className="mt-6 grid gap-3">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <input className="w-full rounded-xl border border-black/10 px-4 py-3" placeholder="Nombre" />
+                <input className="w-full rounded-xl border border-black/10 px-4 py-3" placeholder="Apellido" />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <input className="w-full rounded-xl border border-black/10 px-4 py-3" placeholder="Email" />
+                <input className="w-full rounded-xl border border-black/10 px-4 py-3" placeholder="Teléfono" />
+              </div>
+              <select className="w-full rounded-xl border border-black/10 px-4 py-3 bg-white">
+                <option>Cómo te gustaría ayudar</option>
+                <option>Terreno (puerta a puerta)</option>
+                <option>RR.SS. y contenidos</option>
+                <option>Logística / Operaciones</option>
+                <option>Apoyo legal / Administrativo</option>
+              </select>
+              <textarea className="w-full rounded-xl border border-black/10 px-4 py-3 min-h-[120px]" placeholder="Cuéntanos brevemente sobre ti" />
+              <Button className="rounded-full px-5 py-3 text-white w-fit" style={{ background: THEME.red }}>
+                Enviar
+              </Button>
+              <p className="text-xs text-slate-500">*Formulario sin backend aún. Podemos conectarlo a una API o Google Sheets.</p>
+            </form>
+          </div>
+
+          {/* Placeholder para foto de voluntariado */}
+          <div>
+            <div className="aspect-video w-full rounded-3xl border-2 border-dashed bg-white" style={{ borderColor: THEME.redDark }}>
+              <div className="flex h-full items-center justify-center text-center p-6">
+                <p className="text-sm text-slate-500">
+                  Espacio para FOTO/VIDEO de voluntariado <br />
+                  <span className="text-slate-400">(sube imagen 16:9 de actividades en terreno)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Donar() {
+  return (
+    <section id="donar" className="py-16 sm:py-24 bg-white">
+      <Container>
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight" style={{ color: THEME.navy }}>
+              Aporta a la campaña
+            </h2>
+            <p className="mt-3 text-slate-600">
+              Tu donación permite imprimir material, financiar traslados y llegar a más vecinos.
+            </p>
+            <div className="mt-6 grid sm:grid-cols-3 gap-3">
+              {["$5.000", "$10.000", "$20.000"].map((monto) => (
+                <button
+                  key={monto}
+                  className="rounded-2xl border border-black/10 px-5 py-4 text-left hover:shadow-md transition"
+                >
+                  <p className="text-sm text-slate-500">Monto</p>
+                  <p className="text-lg font-bold" style={{ color: THEME.navy }}>{monto}</p>
+                </button>
+              ))}
+            </div>
+            <div className="mt-4 flex gap-3">
+              <input className="w-40 rounded-xl border border-black/10 px-4 py-3" placeholder="$ Otro" />
+              <Button className="rounded-xl px-5 py-3 text-white" style={{ background: THEME.red }}>
+                Donar ahora
+              </Button>
+            </div>
+            <p className="mt-3 text-xs text-slate-500">* Implementar pasarela o datos de transferencia más adelante.</p>
+          </div>
+
+          {/* Placeholder para imagen de donaciones */}
+          <div>
+            <div className="aspect-[4/3] w-full rounded-3xl border-2 border-dashed bg-white" style={{ borderColor: THEME.gold }}>
+              <div className="flex h-full items-center justify-center text-center p-6">
+                <p className="text-sm text-slate-500">
+                  Espacio para imagen/arte de donaciones <br />
+                  <span className="text-slate-400">(ilustración o foto del equipo)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer id="contacto" className="pt-12 pb-16" style={{ background: THEME.navy, color: "white" }}>
+      <Container>
+        <div className="grid md:grid-cols-3 gap-10">
+          <div>
+            <p className="text-xl font-bold">{bio.nombre}</p>
+            <p className="text-sm text-white/80">{bio.cargo}</p>
+            <div className="mt-4 flex items-center gap-2 text-sm text-white/80"><MapPin size={16}/> Casablanca, Región de Valparaíso</div>
+            <div className="mt-1 flex items-center gap-2 text-sm text-white/80"><Mail size={16}/> correo@campaña.cl</div>
+            <div className="mt-1 flex items-center gap-2 text-sm text-white/80"><Phone size={16}/> +56 9 0000 0000</div>
+          </div>
+          <div>
+            <p className="font-semibold">Navegación</p>
+            <ul className="mt-3 space-y-2 text-sm text-white/80">
+              <li><a href="#propuesta" className="hover:underline">Propuesta</a></li>
+              <li><a href="#biografia" className="hover:underline">Biografía</a></li>
+              <li><a href="#agenda" className="hover:underline">Agenda</a></li>
+              <li><a href="#voluntariado" className="hover:underline">Voluntariado</a></li>
+              <li><a href="#donar" className="hover:underline">Donar</a></li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold">Acción</p>
+            <div className="mt-3 grid gap-2">
+              <Button className="rounded-full px-4 py-2 text-white" style={{ background: THEME.red }}>
+                Súmate hoy
+              </Button>
+              <Button variant="outline" className="rounded-full px-4 py-2">
+                Comparte la propuesta
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/60 flex flex-wrap items-center gap-2 justify-between">
+          <p>© {new Date().getFullYear()} {bio.nombre}. Todos los derechos reservados.</p>
+          <p>
+            Hecha con <span className="font-semibold">Next.js</span> + <span className="font-semibold">Tailwind</span> · Estilo sobrio con movimiento.
+          </p>
+        </div>
+      </Container>
+    </footer>
+  );
+}
+
+export default function LandingPage() {
+  return (
+    <main className="min-h-dvh" style={{ color: THEME.coal }}>
+      <NavBar />
+      <Hero />
+      <Propuesta />
+      <Biografia />
+      <Agenda />
+      <Voluntariado />
+      <Donar />
+      <Footer />
+
+      {/* Cinta inferior con CTA persistente en mobile */}
+      <div className="fixed inset-x-0 bottom-4 z-[60] px-4 md:hidden">
+        <div className="mx-auto max-w-md rounded-full bg-white shadow-lg border border-black/5 flex items-center justify-between pl-4 pr-2 py-2">
+          <div className="text-sm">
+            <p className="font-semibold" style={{ color: THEME.navy }}>¿Te sumas a la campaña?</p>
+            <p className="text-xs text-slate-500">Sé parte del equipo de {bio.nombre}</p>
+          </div>
+          <a href="#voluntariado" className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-white" style={{ background: THEME.red }}>
+            Sí, voy <ChevronRight size={16} />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }
