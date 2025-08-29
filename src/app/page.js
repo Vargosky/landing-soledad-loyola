@@ -24,7 +24,7 @@ const bio = {
   nombre: "Soledad Loyola",
   cargo: "Candidata a Senadora – Circunscripción 6, Región de Valparaíso",
   resumen:
-    "Técnico Agrícola (DuocUC), con formación en Ingeniería en Administración de RR.HH. (Escuela de Comercio Santiago). Casablanca de corazón; gestión territorial rural, apoyo a organizaciones comunitarias y vocación de servicio.",
+    "Técnico Agrícola (DuocUC), con formación en Ingeniería en Administración de RR.HH. (Escuela de Comercio Santiago). Chilena de corazón; gestión territorial rural, apoyo a organizaciones comunitarias y vocación de servicio.",
   edad: 40,
   nacimiento: "Valparaíso, 17 de junio de 1985",
   familia: "Soltera; madre de una hija de 18 años y un hijo de 8 años.",
@@ -490,7 +490,7 @@ export default function LandingPage() {
       <Biografia />
       <Agenda />
       <Voluntariado />
-      <Donar />
+      {/* <Donar /> */}
       <Footer />
 
       {/* Cinta inferior con CTA persistente en mobile */}
