@@ -182,9 +182,10 @@ function Hero() {
                 fill                            // ocupa todo el contenedor (position: absolute)
                 priority                        // carga preferente para LCP
                 sizes="(min-width: 1024px) 560px, 90vw"
-                className="object-cover object-center"
+                className="object-contain object-center"
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMycgaGVpZ2h0PSczJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLz4=" // opcional: mini blur
+              
               />
             </div>
 
