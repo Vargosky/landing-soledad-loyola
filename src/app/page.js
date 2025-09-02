@@ -250,40 +250,58 @@ function Propuesta() {
 
 function Biografia() {
   return (
-    <section id="biografia" className="py-16 sm:py-24" style={{ background: THEME.light }}>
+    <section
+      id="biografia"
+      className="py-16 sm:py-24"
+      style={{ background: THEME.light }}
+    >
       <Container>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* FOTO BIO */}
           <div>
-            <div className="aspect-[4/5] w-full rounded-3xl border-2 border-dashed bg-white" style={{ borderColor: THEME.primary }}>
-              <div className="flex h-full items-center justify-center text-center p-6">
-                <p className="text-sm text-slate-500">
-                  Espacio para FOTO BIO (medio cuerpo) <br />
-                  <span className="text-slate-400">(sube una imagen nítida con fondo real o estudio)</span>
-                </p>
-              </div>
+            <div
+              className="relative aspect-[4/5] w-full rounded-3xl border-2 overflow-hidden"
+              style={{ borderColor: THEME.primary, background: "#ffffff" }}
+            >
+              <Image
+                src="/images/soledad_torso.jpeg"
+                alt="Soledad Loyola - Foto de medio cuerpo"
+                fill
+                className="object-cover"
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
             </div>
           </div>
 
           <div>
-            <h2 className={`${passion.className} text-3xl sm:text-4xl font-bold tracking-tight`} style={{ color: THEME.blue }}>
+            <h2
+              className={`${passion.className} text-3xl sm:text-4xl font-bold tracking-tight`}
+              style={{ color: THEME.blue }}
+            >
               {bio.nombre}
             </h2>
             <p className="mt-2 text-sm font-semibold" style={{ color: THEME.primary }}>
               {bio.cargo}
             </p>
-            <p className="mt-4 text-slate-700">
-              {bio.resumen}
-            </p>
+            <p className="mt-4 text-slate-700">{bio.resumen}</p>
             <ul className="mt-4 space-y-2 text-slate-700 text-sm">
-              <li><strong>Nacimiento:</strong> {bio.nacimiento} ({bio.edad} años)</li>
-              <li><strong>Familia:</strong> {bio.familia}</li>
-              <li><strong>Domicilio:</strong> {bio.domicilio}</li>
+              <li>
+                <strong>Nacimiento:</strong> {bio.nacimiento} ({bio.edad} años)
+              </li>
+              <li>
+                <strong>Familia:</strong> {bio.familia}
+              </li>
+              <li>
+                <strong>Domicilio:</strong> {bio.domicilio}
+              </li>
             </ul>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               <Card className="rounded-xl border-black/5">
                 <CardHeader>
-                  <CardTitle className={`${passion.className} text-base`}>Estudios</CardTitle>
+                  <CardTitle className={`${passion.className} text-base`}>
+                    Estudios
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
@@ -295,7 +313,9 @@ function Biografia() {
               </Card>
               <Card className="rounded-xl border-black/5">
                 <CardHeader>
-                  <CardTitle className={`${passion.className} text-base`}>Competencias</CardTitle>
+                  <CardTitle className={`${passion.className} text-base`}>
+                    Competencias
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
@@ -306,9 +326,7 @@ function Biografia() {
                 </CardContent>
               </Card>
             </div>
-            <p className="mt-6 text-sm text-slate-600">
-              {bio.militancia}
-            </p>
+            <p className="mt-6 text-sm text-slate-600">{bio.militancia}</p>
           </div>
         </div>
       </Container>
@@ -363,11 +381,18 @@ function Agenda() {
 
 function Voluntariado() {
   return (
-    <section id="voluntariado" className="py-16 sm:py-24" style={{ background: `linear-gradient(180deg, white, ${THEME.light})` }}>
+    <section
+      id="voluntariado"
+      className="py-16 sm:py-24"
+      style={{ background: `linear-gradient(180deg, white, ${THEME.light})` }}
+    >
       <Container>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className={`${passion.className} text-3xl sm:text-4xl font-bold tracking-tight`} style={{ color: THEME.blue }}>
+            <h2
+              className={`${passion.className} text-3xl sm:text-4xl font-bold tracking-tight`}
+              style={{ color: THEME.blue }}
+            >
               Súmate como voluntario/a
             </h2>
             <p className="mt-3 text-slate-600 max-w-prose">
@@ -390,23 +415,33 @@ function Voluntariado() {
                 <option>Logística / Operaciones</option>
                 <option>Apoyo legal / Administrativo</option>
               </select>
-              <textarea className="w-full rounded-xl border border-black/10 px-4 py-3 min-h-[120px]" placeholder="Cuéntanos brevemente sobre ti" />
+              <textarea
+                className="w-full rounded-xl border border-black/10 px-4 py-3 min-h-[120px]"
+                placeholder="Cuéntanos brevemente sobre ti"
+              />
               <Button className="rounded-full px-5 py-3 text-white w-fit" style={{ background: THEME.primary }}>
                 Enviar
               </Button>
-              <p className="text-xs text-slate-500">*Formulario sin backend aún. Podemos conectarlo a una API o Google Sheets.</p>
+              <p className="text-xs text-slate-500">
+                *Formulario sin backend aún. Podemos conectarlo a una API o Google Sheets.
+              </p>
             </form>
           </div>
 
           {/* FOTO/VIDEO voluntariado */}
           <div>
-            <div className="aspect-video w-full rounded-3xl border-2 border-dashed bg-white" style={{ borderColor: THEME.primaryDark }}>
-              <div className="flex h-full items-center justify-center text-center p-6">
-                <p className="text-sm text-slate-500">
-                  Espacio para FOTO/VIDEO de voluntariado <br />
-                  <span className="text-slate-400">(sube imagen 16:9 de actividades en terreno)</span>
-                </p>
-              </div>
+            <div
+              className="relative aspect-video w-full rounded-3xl border-2 overflow-hidden p-5"
+              style={{ borderColor: THEME.primaryDark, background: "#ffffff" }}
+            >
+              <Image
+                src="/images/voluntariado2.jpg"   // ✅ Ruta absoluta desde /public
+                alt="Voluntariado en campaña"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority={false}           // no es crítica, carga normal
+              />
             </div>
           </div>
         </div>
