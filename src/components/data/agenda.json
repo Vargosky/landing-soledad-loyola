@@ -1,0 +1,41 @@
+{
+  "provinces": [
+    {
+      "name": "Valparaíso",
+      "events": [
+        { "date": "2025-09-17", "title": "Puerta a puerta y punto de prensa", "location": "Valparaíso - Por definir" },
+        { "date": "2025-09-20", "title": "Reunión con JJ.VV.", "location": "Cerro Barón" },
+        { "date": "2025-09-28", "title": "Volanteo y puerta a puerta", "location": "Plaza Victoria" }
+      ]
+    },
+    {
+      "name": "Marga Marga",
+      "events": [
+        { "date": "2025-09-18", "title": "Actividad Fiestas Patrias", "location": "Quilpué - Parque Municipal" },
+        { "date": "2025-09-25", "title": "Encuentro con Adulto Mayor", "location": "Villa Alemana - Sede Social" }
+      ]
+    },
+    {
+      "name": "Quillota",
+      "events": [
+        { "date": "2025-09-22", "title": "Puerta a puerta sector sur", "location": "Quillota - Sector Sur" }
+      ]
+    },
+    {
+      "name": "San Antonio",
+      "events": [
+        { "date": "2025-09-19", "title": "Punto de prensa", "location": "San Antonio - Plaza de Armas" }
+      ]
+    },
+    {
+      "name": "Petorca",
+      "events": []
+    },
+    {
+      "name": "Los Andes",
+      "events": [
+        { "date": "2025-09-21", "title": "Reunión seguridad vecinal", "location": "Los Andes - Centro" }
+      ]
+    }
+  ]
+}

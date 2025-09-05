@@ -32,11 +32,11 @@ export function Hero() {
             >
               Circunscripción 6 · Región de Valparaíso
             </span>
-            <h1 className={`${passion.className} mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-white`}>
-              La región mejora con
-            </h1>
-              <h1 className={`${passion.className} mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-white`}>
+            <h1 className={`${passion.className} mt-4 text-4xl sm:text-5xl tracking-tight text-white`}>
               Soledad Loyola
+            </h1>
+              <h1 className={`${passion.className} mt-4 text-4xl sm:text-5xl  tracking-tight text-white`}>
+              La Fuerza de la Región
             </h1>
             <p className="mt-4 text-slate-200 max-w-xl">
               {bio.nombre} propone una agenda sobria y firme: combatir el delito con enfoque territorial, ordenar la migración con reglas claras, y reactivar la economía local apoyando a quienes emprenden y trabajan.
@@ -45,12 +45,12 @@ export function Hero() {
               <Button className="rounded-full px-5 py-2.5 text-white" style={{ background: THEME.primary }} asChild>
                 <a href="#propuesta">Leer propuesta</a>
               </Button>
-              <Button className="rounded-full px-5 py-2.5 border-2" variant="outline" asChild style={{ borderColor: THEME.white, color: THEME.white }}>
+              <Button className="rounded-full px-5 py-2.5 border-2" variant="outline" asChild style={{ borderColor: THEME.primary, color: THEME.blue }}>
                 <a href="#voluntariado">Ser voluntario</a>
               </Button>
-              <Button className="rounded-full px-5 py-2.5 border-2" variant="outline" asChild style={{ borderColor: THEME.white, color: THEME.white }}>
+              {/* <Button className="rounded-full px-5 py-2.5 border-2" variant="outline" asChild style={{ borderColor: THEME.primary, color: THEME.blue }}>
                 <a href="#donar">Donar</a>
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
 

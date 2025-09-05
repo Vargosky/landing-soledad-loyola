@@ -25,14 +25,14 @@ export function Propuesta() {
           </p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <Issue icon={Shield} title="Seguridad">
-            Plan regional contra el crimen organizado: refuerzo a Carabineros y PDI, persecución penal efectiva y recuperación de espacios públicos. Protección a víctimas y testigos.
+          <Issue icon={Shield} title="Plan Implacable">
+          Delincuentes a la cárcel, sin excusas. Más penas, más control, más respaldo a Carabineros. Seguridad sin complejos.
           </Issue>
-          <Issue icon={Landmark} title="Orden migratorio">
-            Control fronterizo real, regularización con plazos estrictos y expulsión de delincuentes. Integración responsable para quienes cumplen la ley y aportan al país.
+          <Issue icon={Landmark} title="Plan Generación Dorada">
+          El Plan Generación Dorada es una propuesta social integral que busca que Chile no pierda una generación completa de talento, esfuerzo y esperanza. Está orientado a adultos mayores y personas que hoy se sienten postergadas por el Estado.
           </Issue>
-          <Issue icon={HeartPulse} title="Salud y bienestar">
-            Reducción de listas de espera con gestión, más especialistas y salud primaria fortalecida. Prevención en salud mental y adicciones con foco comunitario.
+          <Issue icon={HeartPulse} title="Plan Zero : Cero Espera">
+          En Chile hay más de 2,5 millones de personas esperando atención médica. Nosotros decimos: cero listas, cero excusas, cero abandono.
           </Issue>
         </div>
       </Container>
