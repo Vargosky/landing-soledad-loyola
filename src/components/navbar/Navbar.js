@@ -37,7 +37,7 @@ export function NavBar() {
             <a href="#biografia" className="hover:opacity-80">Biografía</a>
             <a href="#agenda" className="hover:opacity-80">Agenda</a>
             <a href="#voluntariado" className="hover:opacity-80">Voluntariado</a>
-            <a href="#donar" className="hover:opacity-80">Donar</a>
+
             <Button
               className="rounded-full px-4 py-2 text-white"
               style={{ background: THEME.primary }}
