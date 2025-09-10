@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X, Shield, HeartPulse, Landmark, Users, ChevronRight, Mail, Phone, MapPin } from "lucide-react";
+// 1. Importamos los íconos de Facebook e Instagram
+import { Menu, X, Shield, HeartPulse, Landmark, Users, ChevronRight, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -20,8 +21,31 @@ export function Footer() {
             <p className={`${passion.className} text-xl font-bold`}>{bio.nombre}</p>
             <p className="text-sm text-white/80">{bio.cargo}</p>
             <div className="mt-4 flex items-center gap-2 text-sm text-white/80"><MapPin size={16} /> Casablanca, Región de Valparaíso</div>
-            <div className="mt-1 flex items-center gap-2 text-sm text-white/80"><Mail size={16} /> correo@campaña.cl</div>
-            <div className="mt-1 flex items-center gap-2 text-sm text-white/80"><Phone size={16} /> +56 9 0000 0000</div>
+            <div className="mt-1 flex items-center gap-2 text-sm text-white/80"><Phone size={16} /> +56 9 4874 4296</div>
+
+            {/* --- SECCIÓN DE REDES SOCIALES (AÑADIDA) --- */}
+            <div className="mt-6 flex items-center gap-4">
+              <a 
+                href="https://instagram.com/tu-usuario" // <-- CAMBIA ESTA URL
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Perfil de Instagram"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
+              <a 
+                href="https://facebook.com/tu-usuario" // <-- CAMBIA ESTA URL
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Página de Facebook"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Facebook size={24} />
+              </a>
+            </div>
+            {/* --- FIN DE LA SECCIÓN --- */}
+
           </div>
           <div>
             <p className="font-semibold">Navegación</p>
