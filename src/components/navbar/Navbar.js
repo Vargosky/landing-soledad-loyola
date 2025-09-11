@@ -49,7 +49,7 @@ export function NavBar() {
           <div className="hidden md:flex items-center gap-6 text-sm font-medium">
             <a href="#propuesta" className="hover:opacity-80">Propuesta</a>
             <a href="#biografia" className="hover:opacity-80">Biografía</a>
-            <a href="#agenda" className="hover:opacity-80">Agenda</a>
+            {/* <a href="#agenda" className="hover:opacity-80">Agenda</a> */}
             <a href="#voluntariado" className="hover:opacity-80">Voluntariado</a>
 
             <Button
@@ -72,7 +72,7 @@ export function NavBar() {
               {[
                 ["Propuesta", "#propuesta"],
                 ["Biografía", "#biografia"],
-                ["Agenda", "#agenda"],
+                // ["Agenda", "#agenda"],
                 ["Voluntariado", "#voluntariado"],
                 ["Donar", "#donar"],
                 ["Contacto", "#contacto"],
