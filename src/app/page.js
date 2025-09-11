@@ -37,7 +37,7 @@ export default function LandingPage() {
       <Hero />
       <Propuesta />
       <Biografia />
-      <Agenda />
+      {/* <Agenda /> */}
       <Voluntariado />
       <Footer />
 
