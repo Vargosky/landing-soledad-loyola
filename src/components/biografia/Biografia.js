@@ -55,9 +55,9 @@ export function Biografia() {
               <li>
                 <strong>Nacimiento:</strong> {bio.nacimiento} ({bio.edad} años)
               </li>
-              <li>
+              {/* <li>
                 <strong>Familia:</strong> {bio.familia}
-              </li>
+              </li> */}
               <li>
                 <strong>Domicilio:</strong> {bio.domicilio}
               </li>

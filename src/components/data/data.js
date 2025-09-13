@@ -7,7 +7,7 @@ export const bio = {
     "Técnico Agrícola (DuocUC), con formación en Ingeniería en Administración de RR.HH. (Escuela de Comercio Santiago). Chilena de corazón; gestión territorial rural, apoyo a organizaciones comunitarias y vocación de servicio.",
   edad: 40,
   nacimiento: "Valparaíso, 17 de junio de 1985",
-  familia: "Soltera; madre de una hija de 18 años y un hijo de 8 años.",
+  // familia: "Soltera; madre de una hija de 18 años y un hijo de 8 años.",
   estudios: [
     "Educación básica y media en Casablanca.",
     "Técnico Agrícola en DuocUC.",
