@@ -26,7 +26,7 @@ export function Footer() {
             {/* --- SECCIÓN DE REDES SOCIALES (AÑADIDA) --- */}
             <div className="mt-6 flex items-center gap-4">
               <a 
-                href="https://instagram.com/tu-usuario" // <-- CAMBIA ESTA URL
+                href="https://instagram.com/soledadloyolav/" // <-- CAMBIA ESTA URL
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Perfil de Instagram"
@@ -35,7 +35,7 @@ export function Footer() {
                 <Instagram size={24} />
               </a>
               <a 
-                href="https://facebook.com/tu-usuario" // <-- CAMBIA ESTA URL
+                href="https://facebook.com/soledad.loyolavera" // <-- CAMBIA ESTA URL
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Página de Facebook"
